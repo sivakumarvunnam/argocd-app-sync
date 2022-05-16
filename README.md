@@ -23,7 +23,7 @@ Sync an app on ArgoCD.
 App Environment URL
 
 ###
-`- name: argocd sync
+```- name: argocd sync
    uses: sivakumarvunnam/argocd-app-sync@main # Uses an action in the root directory
    id: deployment-sync
    with:
@@ -31,4 +31,4 @@ App Environment URL
      cli_server: latest
      auth_token: ${secret.ARGOCD_PASSWORD}
      app: ${{needs.build-and-push-docker-image.outputs.service_name}}
-`
+```
