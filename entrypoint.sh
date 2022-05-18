@@ -17,6 +17,9 @@ else
     argocd login ${ARGOCD_SERVER} --username admin --password ${ARGOCD_AUTH_TOKEN} --insecure --grpc-web
 fi
 
+echo "==> App list..."
+argocd app list -l name: $1
+
 echo "==> Syncing app..."
 argocd app sync $1
 
