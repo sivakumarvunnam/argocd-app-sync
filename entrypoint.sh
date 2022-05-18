@@ -11,7 +11,7 @@ echo "==> ArgoCD server status code :" $HTTP_CODE
 
 if [ -z $HTTP_CODE && $HTTP_CODE == 200  ]; then
     echo "==> Login to ArgoCD UI..."
-    argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_AUTH_TOKEN --insecure
+    argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_AUTH_TOKEN --insecure --grpc-web
 else
     echo "==> ArgoCD endpoint is not available"
     exit 0
