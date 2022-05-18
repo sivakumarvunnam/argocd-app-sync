@@ -9,12 +9,12 @@ chmod +x /usr/local/bin/argocd
 HTTP_CODE=$(curl --write-out "%{http_code}\n" "https://${ARGOCD_SERVER}" --output output.txt --silent)
 echo "==> ArgoCD server status code :" $HTTP_CODE
 
-if [ -z $HTTP_CODE && $HTTP_CODE == 200  ]; then
-    echo "==> Login to ArgoCD UI..."
-    argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_AUTH_TOKEN --insecure --grpc-web
-else
+if [ -z $HTTP_CODE ]; then
     echo "==> ArgoCD endpoint is not available"
     exit 0
+else
+    echo "==> Login to ArgoCD UI..."
+    argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_AUTH_TOKEN --insecure --grpc-web
 fi
 
 echo "==> Syncing app..."
