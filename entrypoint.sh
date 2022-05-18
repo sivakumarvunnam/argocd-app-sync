@@ -14,7 +14,7 @@ if [ -z $HTTP_CODE ]; then
     exit 0
 else
     echo "==> Login to ArgoCD UI..."
-    argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_AUTH_TOKEN --insecure --grpc-web
+    argocd login ${ARGOCD_SERVER} --username admin --password ${ARGOCD_AUTH_TOKEN} --insecure --grpc-web
 fi
 
 echo "==> Syncing app..."
