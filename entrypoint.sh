@@ -22,7 +22,3 @@ argocd app sync $1 --grpc-web
 
 echo "==> Waiting for app to become healthy..."
 argocd app wait $1 --grpc-web
-
-echo "==> Generating app env url output..."
-#env_url=$(argocd app get $1 -o json | jq -r '.status.summary.externalURLs | sort_by(length) | .[0]')
-#echo "::set-output name=env_url::${env_url}"
